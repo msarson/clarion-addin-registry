@@ -36,6 +36,7 @@ Submit a PR adding your entry to [`registry.json`](./registry.json).
 
 ## Current Addins
 
-| Name | Author | Category | Version |
-|------|--------|----------|---------|
-| [GitPane](https://github.com/msarson/Clarion-GitPane) | msarson | Source Control | 1.0.7 |
+| Name | Author | Category | Version | Notes |
+|------|--------|----------|---------|-------|
+| [GitPane](https://github.com/msarson/Clarion-GitPane) | msarson | Source Control | 1.0.7 | |
+| [Clarion Markdown Editor](https://github.com/msarson/ClarionMarkdownEditor) | msarson | Editor | 1.0.0 | Fork of [peterparker57](https://github.com/peterparker57/ClarionMarkdownEditor) |

@@ -17,6 +17,20 @@
       "addinFileUrl": "https://github.com/msarson/Clarion-GitPane/releases/download/v1.0.7/GitPane.addin",
       "homepageUrl": "https://github.com/msarson/Clarion-GitPane",
       "changelogUrl": "https://github.com/msarson/Clarion-GitPane/blob/master/CHANGELOG.md"
+    },
+    {
+      "id": "ClarionMarkdownEditor",
+      "name": "Clarion Markdown Editor",
+      "description": "Markdown file viewer and editor for the Clarion IDE with split-pane live preview, syntax highlighting, tabbed multi-file editing, and dark mode sync.",
+      "author": "msarson",
+      "license": "MIT",
+      "category": "Editor",
+      "version": "1.0.0",
+      "targetFramework": "net48",
+      "downloadZipUrl": "https://github.com/msarson/ClarionMarkdownEditor/releases/download/v1.0.0/ClarionMarkdownEditor-v1.0.0.zip",
+      "homepageUrl": "https://github.com/msarson/ClarionMarkdownEditor",
+      "fork": true,
+      "upstreamUrl": "https://github.com/peterparker57/ClarionMarkdownEditor"
     }
   ]
 }
