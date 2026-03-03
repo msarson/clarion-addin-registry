@@ -35,4 +35,4 @@ Submit a PR adding your entry to [`registry.json`](./registry.json).
 
 | Name | Author | Category | Version |
 |------|--------|----------|---------|
-| [GitPane](https://github.com/msarson/Clarion-GitPane) | msarson | Source Control | 1.0.6 |
+| [GitPane](https://github.com/msarson/Clarion-GitPane) | msarson | Source Control | 1.0.7 |

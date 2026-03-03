@@ -9,10 +9,10 @@
       "author": "msarson",
       "license": "MIT",
       "category": "Source Control",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "targetFramework": "net40",
-      "downloadUrl": "https://github.com/msarson/Clarion-GitPane/releases/download/v1.0.6/GitPane.dll",
-      "addinFileUrl": "https://github.com/msarson/Clarion-GitPane/releases/download/v1.0.6/GitPane.addin",
+      "downloadUrl": "https://github.com/msarson/Clarion-GitPane/releases/download/v1.0.7/GitPane.dll",
+      "addinFileUrl": "https://github.com/msarson/Clarion-GitPane/releases/download/v1.0.7/GitPane.addin",
       "homepageUrl": "https://github.com/msarson/Clarion-GitPane",
       "changelogUrl": "https://github.com/msarson/Clarion-GitPane/blob/master/CHANGELOG.md"
     }
