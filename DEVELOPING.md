@@ -278,6 +278,26 @@ This is the technique used by AddinFinder's staged update mechanism.
 
 ---
 
+## Using AI assistance
+
+These addins were built using **GitHub Copilot CLI** in a VS Code terminal — no full Visual Studio required. The key is pointing Copilot at your Clarion installation so it understands the available interfaces and base classes:
+
+> *"I'm building a Clarion IDE addin. The Clarion installation folder is at `C:\Clarion\Clarion11.1\`. Reference the assemblies in the `accessory\bin\` subfolder so you can understand the available interfaces and base classes."*
+
+Useful follow-up prompts:
+
+> *"Create a Clarion IDE addin that implements AbstractPadContent and docks as a pad. Target net48, SDK-style csproj."*
+
+> *"The addin needs to run a background task and update the UI safely — show me the correct BeginInvoke pattern for a WinForms control inside a Clarion pad."*
+
+> *"Write an .addin manifest file for a pad addin called X with icon Y."*
+
+> *"The DLL is locked by Clarion when loaded — how do I replace it during an update?"*
+
+GitHub Copilot requires a subscription (~$10/month, free tier available for some users). VS Code Community Edition of Visual Studio also works fine.
+
+---
+
 ## Publishing to the registry
 
 Once your addin is working, see [PUBLISHING.md](./PUBLISHING.md) for how to prepare a release and submit a PR to list it here.
