@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "updated": "2026-03-03",
+  "addins": [
+    {
+      "id": "GitPane",
+      "name": "GitPane",
+      "description": "Visual Git integration for the Clarion IDE. A dockable pane providing commit, push, pull, branch management, stash, history, and merge conflict resolution directly within Clarion.",
+      "author": "msarson",
+      "license": "MIT",
+      "category": "Source Control",
+      "version": "1.0.6",
+      "targetFramework": "net40",
+      "downloadUrl": "https://github.com/msarson/Clarion-GitPane/releases/download/v1.0.6/GitPane.dll",
+      "addinFileUrl": "https://github.com/msarson/Clarion-GitPane/releases/download/v1.0.6/GitPane.addin",
+      "homepageUrl": "https://github.com/msarson/Clarion-GitPane",
+      "changelogUrl": "https://github.com/msarson/Clarion-GitPane/blob/master/CHANGELOG.md"
+    }
+  ]
+}
