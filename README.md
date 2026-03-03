@@ -2,10 +2,15 @@
 
 Community registry of Clarion IDE addins. Used by the **AddinFinder** addin to discover and install addins directly from within the IDE.
 
+## Resources
+
+- **[DEVELOPING.md](./DEVELOPING.md)** — tips and tricks for building a Clarion IDE addin from scratch
+- **[PUBLISHING.md](./PUBLISHING.md)** — how to prepare your release and submit a PR to list it here
+
 ## Adding Your Addin
 
 Submit a PR adding your entry to [`registry.json`](./registry.json).  
-For full instructions on preparing your repo and release, see [PUBLISHING.md](./PUBLISHING.md).
+For full entry format and requirements, see [PUBLISHING.md](./PUBLISHING.md).
 
 ### Entry format — simple addin (single DLL)
 
