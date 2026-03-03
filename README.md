@@ -4,9 +4,10 @@ Community registry of Clarion IDE addins. Used by the **AddinFinder** addin to d
 
 ## Adding Your Addin
 
-Submit a PR adding your entry to [`registry.json`](./registry.json).
+Submit a PR adding your entry to [`registry.json`](./registry.json).  
+For full instructions on preparing your repo and release, see [PUBLISHING.md](./PUBLISHING.md).
 
-### Entry format
+### Entry format — simple addin (single DLL)
 
 ```json
 {
@@ -19,8 +20,7 @@ Submit a PR adding your entry to [`registry.json`](./registry.json).
   "version": "1.0.0",
   "targetFramework": "net40",
   "downloadUrls": [
-    "https://github.com/you/your-addin/releases/download/v1.0.0/YourAddin.dll",
-    "https://github.com/you/your-addin/releases/download/v1.0.0/SomeDependency.dll"
+    "https://github.com/you/your-addin/releases/download/v1.0.0/YourAddin.dll"
   ],
   "addinFileUrl": "https://github.com/you/your-addin/releases/download/v1.0.0/YourAddin.addin",
   "homepageUrl": "https://github.com/you/your-addin",
@@ -28,11 +28,47 @@ Submit a PR adding your entry to [`registry.json`](./registry.json).
 }
 ```
 
+### Entry format — complex addin (multiple files / resource folders)
+
+Use `downloadZipUrl` instead of `downloadUrls` when your addin ships resource files, sub-folders, or multiple dependent DLLs.
+
+```json
+{
+  "id": "YourAddinId",
+  "name": "Display Name",
+  "description": "What your addin does.",
+  "author": "YourGitHubUsername",
+  "license": "MIT",
+  "category": "Editor",
+  "version": "1.0.0",
+  "targetFramework": "net48",
+  "downloadZipUrl": "https://github.com/you/your-addin/releases/download/v1.0.0/YourAddin-v1.0.0.zip",
+  "homepageUrl": "https://github.com/you/your-addin",
+  "changelogUrl": "https://github.com/you/your-addin/blob/master/CHANGELOG.md"
+}
+```
+
+The zip is extracted directly into the addin's install folder, preserving any sub-folder structure (e.g. `Resources\`). The `.addin` manifest file must be included inside the zip.
+
+### Entry format — fork
+
+Add `fork: true` and `upstreamUrl` so users can see where the addin originates:
+
+```json
+{
+  ...
+  "fork": true,
+  "upstreamUrl": "https://github.com/original-author/original-repo"
+}
+```
+
 ### Requirements
 
 - Addin must be **open source** (MIT or compatible license)
-- `downloadUrl` and `addinFileUrl` must point to a **GitHub Release** asset (direct download)
+- All download URLs must point to **GitHub Release** assets (direct download, no redirects)
 - `targetFramework` must be `net40` through `net48` — net5+ cannot load in Clarion's CLR v4
+- If using `downloadZipUrl`, the zip must include the `.addin` manifest file
+- Do **not** include debug symbols (`.pdb`) or test assemblies in the release assets
 
 ## Current Addins
 
