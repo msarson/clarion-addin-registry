@@ -47,7 +47,8 @@
         "https://github.com/msarson/ListFormatParser/releases/download/v1.0.0/ListFormatParser.dll"
       ],
       "addinFileUrl": "https://github.com/msarson/ListFormatParser/releases/download/v1.0.0/ListFormatParser.addin",
-      "homepageUrl": "https://github.com/msarson/ListFormatParser"
+      "homepageUrl": "https://github.com/msarson/ListFormatParser",
+      "changelogUrl": "https://github.com/msarson/ListFormatParser/blob/master/CHANGELOG.md"
     },
     {
       "id": "ClarionMarkdownEditor",
