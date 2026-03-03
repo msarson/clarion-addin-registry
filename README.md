@@ -74,5 +74,7 @@ Add `fork: true` and `upstreamUrl` so users can see where the addin originates:
 
 | Name | Author | Category | Version | Notes |
 |------|--------|----------|---------|-------|
-| [GitPane](https://github.com/msarson/Clarion-GitPane) | msarson | Source Control | 1.0.7 | |
-| [Clarion Markdown Editor](https://github.com/msarson/ClarionMarkdownEditor) | msarson | Editor | 1.0.0 | Fork of [peterparker57](https://github.com/peterparker57/ClarionMarkdownEditor) |
+| [GitPane](https://github.com/msarson/Clarion-GitPane) | msarson | Source Control | 1.0.9 | |
+| [Flatten Code](https://github.com/msarson/FlattenCode) | msarson | Editor | 1.0.3 | |
+| [List Format Parser](https://github.com/msarson/ListFormatParser) | msarson | Editor | 1.0.0 | |
+| [Clarion Markdown Editor](https://github.com/msarson/ClarionMarkdownEditor) | msarson | Editor | 1.0.1 | Fork of [peterparker57](https://github.com/peterparker57/ClarionMarkdownEditor) |
