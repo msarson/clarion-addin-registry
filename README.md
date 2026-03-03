@@ -18,7 +18,10 @@ Submit a PR adding your entry to [`registry.json`](./registry.json).
   "category": "One of: Source Control | Editor | Utilities | Templates | Other",
   "version": "1.0.0",
   "targetFramework": "net40",
-  "downloadUrl": "https://github.com/you/your-addin/releases/download/v1.0.0/YourAddin.dll",
+  "downloadUrls": [
+    "https://github.com/you/your-addin/releases/download/v1.0.0/YourAddin.dll",
+    "https://github.com/you/your-addin/releases/download/v1.0.0/SomeDependency.dll"
+  ],
   "addinFileUrl": "https://github.com/you/your-addin/releases/download/v1.0.0/YourAddin.addin",
   "homepageUrl": "https://github.com/you/your-addin",
   "changelogUrl": "https://github.com/you/your-addin/blob/master/CHANGELOG.md"
