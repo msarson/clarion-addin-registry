@@ -41,12 +41,12 @@
       "author": "msarson",
       "license": "MIT",
       "category": "Editor",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "targetFramework": "net40",
       "downloadUrls": [
-        "https://github.com/msarson/ListFormatParser/releases/download/v1.2.0/ListFormatParser.dll"
+        "https://github.com/msarson/ListFormatParser/releases/download/v1.2.1/ListFormatParser.dll"
       ],
-      "addinFileUrl": "https://github.com/msarson/ListFormatParser/releases/download/v1.2.0/ListFormatParser.addin",
+      "addinFileUrl": "https://github.com/msarson/ListFormatParser/releases/download/v1.2.1/ListFormatParser.addin",
       "homepageUrl": "https://github.com/msarson/ListFormatParser",
       "changelogUrl": "https://github.com/msarson/ListFormatParser/blob/master/CHANGELOG.md"
     },
