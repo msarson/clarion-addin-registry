@@ -6,7 +6,7 @@ A practical guide to building, debugging, and shipping Clarion IDE addins — di
 
 ## How Clarion loads addins
 
-Clarion is built on **SharpDevelop 3.x** (ICSharpCode). Addins are `.NET` assemblies described by an `.addin` XML manifest. At startup, Clarion scans `accessory\addins\**\*.addin`, loads the manifests, then loads the DLLs on demand.
+Clarion is built on **SharpDevelop 2.1** (ICSharpCode). Addins are `.NET` assemblies described by an `.addin` XML manifest. At startup, Clarion scans `accessory\addins\**\*.addin`, loads the manifests, then loads the DLLs on demand.
 
 The runtime is **.NET CLR v4** — your addin must target `net40` through `net48`. `net5+` assemblies cannot be loaded.
 
