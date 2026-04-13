@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-03-04",
+  "updated": "2026-03-17",
   "addins": [
     {
       "id": "GitPane",
@@ -49,6 +49,20 @@
       "addinFileUrl": "https://github.com/msarson/ListFormatParser/releases/download/v1.3.0/ListFormatParser.addin",
       "homepageUrl": "https://github.com/msarson/ListFormatParser",
       "changelogUrl": "https://github.com/msarson/ListFormatParser/blob/master/CHANGELOG.md"
+    },
+    {
+      "id": "ClarionLsp",
+      "name": "Clarion LSP",
+      "description": "Shared Clarion language server (LSP) infrastructure for the Clarion IDE. Manages the Node.js language server lifecycle and exposes IClarionLanguageClient for other addins to consume — providing hover, go to definition, go to implementation, find references, workspace symbols, and rename across Clarion source files.",
+      "author": "msarson",
+      "license": "MIT",
+      "category": "Utilities",
+      "version": "1.0.0",
+      "targetFramework": "net48",
+      "downloadZipUrl": "https://github.com/msarson/clarion-lsp/releases/download/v1.0.0/ClarionLsp-v1.0.0.zip",
+      "addinFileUrl": "https://github.com/msarson/clarion-lsp/releases/download/v1.0.0/ClarionLsp.addin",
+      "homepageUrl": "https://github.com/msarson/clarion-lsp",
+      "changelogUrl": "https://github.com/msarson/clarion-lsp/blob/main/CHANGELOG.md"
     },
     {
       "id": "ClarionMarkdownEditor",
