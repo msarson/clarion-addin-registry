@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-05-15",
+  "updated": "2026-05-17",
   "addins": [
     {
       "id": "GitPane",
@@ -71,9 +71,9 @@
       "author": "msarson",
       "license": "MIT",
       "category": "Editor",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "targetFramework": "net48",
-      "downloadZipUrl": "https://github.com/msarson/ClarionMarkdownEditor/releases/download/v1.1.1/ClarionMarkdownEditor-v1.1.1.zip",
+      "downloadZipUrl": "https://github.com/msarson/ClarionMarkdownEditor/releases/download/v1.1.2/ClarionMarkdownEditor-v1.1.2.zip",
       "homepageUrl": "https://github.com/msarson/ClarionMarkdownEditor",
       "changelogUrl": "https://github.com/msarson/ClarionMarkdownEditor/blob/main/CHANGELOG.md",
       "fork": true,
