@@ -53,7 +53,7 @@
     {
       "id": "ClarionLsp",
       "name": "Clarion LSP",
-      "description": "Shared Clarion language server (LSP) infrastructure for the Clarion IDE. Manages the Node.js language server lifecycle and exposes IClarionLanguageClient for other addins to consume — providing hover, go to definition, go to implementation, find references, workspace symbols, and rename across Clarion source files.",
+      "description": "Shared Clarion language server (LSP) infrastructure for the Clarion IDE. Manages the Node.js language server lifecycle and exposes IClarionLanguageClient for other addins to consume — providing hover, go to definition, go to implementation, find references, workspace symbols, rename, code completion, diagnostics, and live unsaved-buffer sync across Clarion source files.",
       "author": "msarson",
       "license": "MIT",
       "category": "Utilities",
