@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-06-12",
+  "updated": "2026-07-02",
   "addins": [
     {
       "id": "GitPane",
@@ -53,14 +53,14 @@
     {
       "id": "ClarionLsp",
       "name": "Clarion LSP",
-      "description": "Shared Clarion language server (LSP) infrastructure for the Clarion IDE. Manages the Node.js language server lifecycle and exposes IClarionLanguageClient for other addins to consume — providing hover, go to definition, go to implementation, find references, workspace symbols, rename, code completion, diagnostics, and live unsaved-buffer sync across Clarion source files.",
+      "description": "Shared Clarion language server (LSP) infrastructure for the Clarion IDE. Manages the Node.js language server lifecycle and exposes IClarionLanguageClient for other addins to consume — providing hover, go to definition, go to implementation, find references, workspace symbols, rename, code completion, signature help, diagnostics, document highlight, folding, selection ranges, code actions, code lens, document formatting, and live unsaved-buffer sync across Clarion source files.",
       "author": "msarson",
       "license": "MIT",
       "category": "Utilities",
-      "version": "1.1.0",
+      "version": "1.4.0",
       "targetFramework": "net48",
-      "downloadZipUrl": "https://github.com/msarson/clarion-lsp/releases/download/v1.1.0/ClarionLsp-v1.1.0.zip",
-      "addinFileUrl": "https://github.com/msarson/clarion-lsp/releases/download/v1.1.0/ClarionLsp.addin",
+      "downloadZipUrl": "https://github.com/msarson/clarion-lsp/releases/download/v1.4.0/ClarionLsp-v1.4.0.zip",
+      "addinFileUrl": "https://github.com/msarson/clarion-lsp/releases/download/v1.4.0/ClarionLsp.addin",
       "homepageUrl": "https://github.com/msarson/clarion-lsp",
       "changelogUrl": "https://github.com/msarson/clarion-lsp/blob/main/CHANGELOG.md"
     },
