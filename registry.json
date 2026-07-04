@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-02",
+  "updated": "2026-07-04",
   "addins": [
     {
       "id": "GitPane",
@@ -91,6 +91,22 @@
       "downloadZipUrl": "https://github.com/msarson/clarion-csv-editor/releases/download/v0.2.0/ClarionCsvEditor-v0.2.0.zip",
       "homepageUrl": "https://github.com/msarson/clarion-csv-editor",
       "changelogUrl": "https://github.com/msarson/clarion-csv-editor/blob/main/CHANGELOG.md"
+    },
+    {
+      "id": "ClarionTransformer",
+      "name": "Clarion Transformer",
+      "description": "Transforms Clarion code using Claude AI (Anthropic API). Takes the selected code block in the editor — or the active PROCEDURE if nothing is selected — and applies a user-defined protocol file (.md). Ships two fixed menu commands, each bound to its own profile: 'Transform to ABC' (legacy file I/O to ABC migration) and 'Refactor' (cleanup of existing ABC code). Supports per-profile Old/New code backups, optional explanatory comments, and configurable re-indentation.",
+      "author": "asantarelli",
+      "license": "MIT",
+      "category": "Editor",
+      "version": "1.0.0",
+      "targetFramework": "net472",
+      "downloadUrls": [
+        "https://github.com/asantarelli/ClarionTransformer/releases/download/v1.0.0/ClarionTransformer.dll"
+      ],
+      "addinFileUrl": "https://github.com/asantarelli/ClarionTransformer/releases/download/v1.0.0/ClarionTransformer.addin",
+      "homepageUrl": "https://github.com/asantarelli/ClarionTransformer",
+      "changelogUrl": "https://github.com/asantarelli/ClarionTransformer/blob/main/CHANGELOG.md"
     }
   ]
 }
