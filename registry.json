@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-02",
+  "updated": "2026-07-04",
   "addins": [
     {
       "id": "GitPane",
@@ -91,6 +91,22 @@
       "downloadZipUrl": "https://github.com/msarson/clarion-csv-editor/releases/download/v0.2.0/ClarionCsvEditor-v0.2.0.zip",
       "homepageUrl": "https://github.com/msarson/clarion-csv-editor",
       "changelogUrl": "https://github.com/msarson/clarion-csv-editor/blob/main/CHANGELOG.md"
+    },
+    {
+      "id": "ClarionFormatter",
+      "name": "Clarion Formatter",
+      "description": "Reformats Clarion WINDOW blocks using Claude AI (Anthropic API). Reads a user-defined protocol file (.md) that describes formatting rules — coordinates, heights, colors, tooltips — and applies them directly in the editor. Supports multiple profiles, one per project, each pointing to its own protocol file.",
+      "author": "asantarelli",
+      "license": "MIT",
+      "category": "Editor",
+      "version": "2.0.1",
+      "targetFramework": "net472",
+      "downloadUrls": [
+        "https://github.com/asantarelli/ClarionFormatter/releases/download/v2.0.1/ClarionWindowFormatter.dll"
+      ],
+      "addinFileUrl": "https://github.com/asantarelli/ClarionFormatter/releases/download/v2.0.1/ClarionWindowFormatter.addin",
+      "homepageUrl": "https://github.com/asantarelli/ClarionFormatter",
+      "changelogUrl": "https://github.com/asantarelli/ClarionFormatter/blob/master/CHANGELOG.md"
     }
   ]
 }
