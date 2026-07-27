@@ -132,6 +132,11 @@ If your addin requires a runtime that may not be installed on user machines (e.g
 2. Add your entry to `registry.json`
 3. Submit a Pull Request
 
+> **Required:** every entry must include an **`authorUrl`** — a link to the developer's page
+> (e.g. your GitHub profile, `https://github.com/you`). Addin Finder renders the author name in
+> the detail panel as a clickable link so users can find more of your work and know who to contact.
+> See the full field list and examples in the [registry README](./README.md#adding-your-addin).
+
 ### Choosing `downloadUrls` vs `downloadZipUrl`
 
 | Scenario | Use |
