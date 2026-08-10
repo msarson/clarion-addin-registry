@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-27",
+  "updated": "2026-08-10",
   "addins": [
     {
       "id": "GitPane",
@@ -71,14 +71,14 @@
     {
       "id": "ClarionMarkdownEditor",
       "name": "Clarion Markdown Editor",
-      "description": "Markdown file viewer and editor for the Clarion IDE: split-pane live preview, syntax highlighting, tabbed multi-file editing, dark mode sync, and load-from-URL for previewing remote READMEs (with a public API other addins can call).",
+      "description": "Markdown file viewer and editor for the Clarion IDE: split-pane live preview with a draggable resizable splitter, syntax highlighting, tabbed multi-file editing, auto-refresh when files change on disk, a remembered Expand/Split preference, dark mode sync, and load-from-URL for previewing remote READMEs (with a public API other addins can call).",
       "author": "msarson",
       "authorUrl": "https://github.com/msarson",
       "license": "MIT",
       "category": "Editor",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "targetFramework": "net48",
-      "downloadZipUrl": "https://github.com/msarson/ClarionMarkdownEditor/releases/download/v1.2.0/ClarionMarkdownEditor-v1.2.0.zip",
+      "downloadZipUrl": "https://github.com/msarson/ClarionMarkdownEditor/releases/download/v1.3.0/ClarionMarkdownEditor-v1.3.0.zip",
       "homepageUrl": "https://github.com/msarson/ClarionMarkdownEditor",
       "changelogUrl": "https://github.com/msarson/ClarionMarkdownEditor/blob/main/CHANGELOG.md",
       "fork": true,
