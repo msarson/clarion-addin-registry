@@ -1,6 +1,13 @@
 # Publishing a Clarion Addin
 
-This guide covers everything you need to do to publish your Clarion IDE addin to the community registry.
+This guide covers everything you need to do to publish a Clarion IDE addin.
+
+Addins are published by their authors. Once you are listed as a publisher you keep your own
+`addins.json`, and releasing a new version means editing that file in your own repository --
+nothing is submitted here and nobody has to approve it.
+
+Read [PUBLISHERS.md](./PUBLISHERS.md) first: it covers what being listed does and does not mean,
+what you take responsibility for, and how to ask to be added.
 
 ---
 
@@ -11,6 +18,8 @@ This guide covers everything you need to do to publish your Clarion IDE addin to
 - Your addin targets **.NET Framework 4.0–4.8** (`net40`–`net48`)  
   > ⚠️ .NET 5+ (CoreCLR) is **not compatible** with Clarion's runtime. See [Clarion .NET Compatibility](#clarion-net-compatibility).
 - Your repo has a `LICENSE` file and a `README.md`
+- Downloads are served from **your own GitHub account** (`github.com/<your-id>/...`) -- this is
+  checked by Addin Finder, and an entry pointing anywhere else is dropped
 
 ---
 
@@ -49,6 +58,22 @@ Minimal example:
   </Path>
 </AddIn>
 ```
+
+> **Bump `<Identity version>` on every release, and keep it matching your assembly version.**
+>
+> Addin Finder reads it to work out what is installed. FlattenCode shipped 1.0.1, 1.0.2 and 1.0.3
+> all declaring `version="1.0"`, and the result was an update the pad offered forever and installing
+> could never clear -- the manifest kept reasserting the old number. Nothing warns you: the build
+> succeeds, the addin works, and only users see the symptom.
+>
+> The cheap guard is a build step that fails when the manifest and your project version disagree.
+> See `CheckAddinVersion` in [FlattenCode.csproj](https://github.com/msarson/FlattenCode/blob/master/FlattenCode.csproj).
+
+> **`<Identity name>` must be unique across every addin a user might install.** Clarion loads every
+> subfolder of `accessoryddins` at start-up and refuses to start at all if two declare the same
+> name -- the user gets *"Identity name used by multiple addins"* and no IDE. It does not have to
+> match your addin id, but it does have to be yours alone, and changing it later looks like a
+> different addin to any IDE that already has yours.
 
 ### Clarion .NET Compatibility
 
@@ -126,16 +151,43 @@ If your addin requires a runtime that may not be installed on user machines (e.g
 
 ---
 
-## Step 3 — Add to the Registry
+## Step 3 — Become a publisher, once
 
-1. Fork [msarson/clarion-addin-registry](https://github.com/msarson/clarion-addin-registry)
-2. Add your entry to `registry.json`
-3. Submit a Pull Request
+Ask to be listed by opening an issue on this repository **from the GitHub account you want listed**.
+See [PUBLISHERS.md](./PUBLISHERS.md) for exactly what to include and what you are agreeing to.
+
+You will be added to the `publishers` list in `registry.json`:
+
+```json
+{ "id": "your-github-account", "name": "Your Name",
+  "repo": "your-addins-repo", "branch": "main" }
+```
+
+That happens once. After it, you own your listings.
+
+## Step 4 — Keep your own `addins.json`
+
+In the repository you named, create `addins.json`:
+
+```json
+{
+  "version": 1,
+  "publisher": "your-github-account",
+  "updated": "2026-08-22",
+  "addins": [ { "id": "MyAddin", "name": "My Addin", "...": "..." } ]
+}
+```
+
+Entry format is unchanged from the old central list, so anything you already had carries over
+verbatim. A complete working example:
+[msarson/clarion-addins](https://github.com/msarson/clarion-addins/blob/main/addins.json).
 
 > **Required:** every entry must include an **`authorUrl`** — a link to the developer's page
 > (e.g. your GitHub profile, `https://github.com/you`). Addin Finder renders the author name in
 > the detail panel as a clickable link so users can find more of your work and know who to contact.
 > See the full field list and examples in the [registry README](./README.md#adding-your-addin).
+
+> `id` is also the folder name the addin installs into, under `accessoryddins`.
 
 ### Choosing `downloadUrls` vs `downloadZipUrl`
 
@@ -147,12 +199,31 @@ If your addin requires a runtime that may not be installed on user machines (e.g
 
 ---
 
-## Step 4 — Releasing Updates
+## Step 5 — Releasing updates
 
-1. Build the new version
+1. Bump the version in your project **and** in `<Identity version>` — they must agree
 2. Update `CHANGELOG.md`
-3. Create a new GitHub Release with the new tag (e.g. `v1.0.1`)
-4. Submit a PR to this registry updating the `version` and download URL(s)
+3. Create a GitHub Release with the new tag (e.g. `v1.0.1`)
+4. Edit `addins.json` **in your own repository**: new `version`, new download URLs
+
+That is the whole process. There is no pull request here, and nothing to wait for -- Addin Finder
+picks it up on the next refresh.
+
+### Retiring an addin
+
+Prefer marking it rather than deleting it. Users who already have it installed are told, and keep
+working:
+
+```json
+{ "id": "MyAddin", "status": "deprecated",
+  "statusNote": "No longer maintained; works on Clarion 11 and earlier.",
+  "replacedBy": "MyOtherAddin" }
+```
+
+Deleting the entry, or the whole repository, is the blunt option: it carries the least information
+to the people who have your addin installed, and a vanished list cannot be told apart from an outage
+with any confidence. If you are winding down, mark your addins `deprecated` and ask to be recorded
+as `abandoned`.
 
 ---
 

@@ -5,15 +5,28 @@ Community registry of Clarion IDE addins. Used by the **AddinFinder** addin to d
 ## Resources
 
 - **[DEVELOPING.md](./DEVELOPING.md)** — tips and tricks for building a Clarion IDE addin from scratch
-- **[PUBLISHING.md](./PUBLISHING.md)** — how to prepare your release and submit a PR to list it here
+- **[PUBLISHING.md](./PUBLISHING.md)** — how to prepare a release and keep your own addin list
 
 > **Publishing here?** Read [PUBLISHERS.md](PUBLISHERS.md) first — what being listed
 > does and does not mean, what you are responsible for, and how to ask to be added.
 
 ## Adding Your Addin
 
-Submit a PR adding your entry to [`registry.json`](./registry.json).  
-For full entry format and requirements, see [PUBLISHING.md](./PUBLISHING.md).
+Addins are published by their authors. This registry records **publishers**; each keeps their own
+`addins.json` in their own repository, so releasing a new version means editing that file and
+nothing else — no pull request here, and nobody to wait for.
+
+1. Ask to be listed as a publisher — [PUBLISHERS.md](./PUBLISHERS.md) covers what that means and
+   how to ask.
+2. Keep your addins in your own `addins.json`. The entry format below is unchanged, so anything
+   already listed here carries over verbatim. Working example:
+   [msarson/clarion-addins](https://github.com/msarson/clarion-addins/blob/main/addins.json).
+
+For the full walkthrough, see [PUBLISHING.md](./PUBLISHING.md).
+
+> The `addins` list in [`registry.json`](./registry.json) is the older flat format. It is still read,
+> so addins that have not moved keep working, and it will be retired once every publisher has a list
+> of their own — not merely once federation works.
 
 ### Entry format — simple addin (single DLL)
 
