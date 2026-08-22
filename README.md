@@ -7,6 +7,9 @@ Community registry of Clarion IDE addins. Used by the **AddinFinder** addin to d
 - **[DEVELOPING.md](./DEVELOPING.md)** — tips and tricks for building a Clarion IDE addin from scratch
 - **[PUBLISHING.md](./PUBLISHING.md)** — how to prepare your release and submit a PR to list it here
 
+> **Publishing here?** Read [PUBLISHERS.md](PUBLISHERS.md) first — what being listed
+> does and does not mean, what you are responsible for, and how to ask to be added.
+
 ## Adding Your Addin
 
 Submit a PR adding your entry to [`registry.json`](./registry.json).  

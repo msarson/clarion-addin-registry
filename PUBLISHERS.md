@@ -1,7 +1,7 @@
 # Becoming a Publisher
 
-> **Draft.** These terms have not been reviewed by a lawyer and are not legal advice. They are here
-> to set clear expectations between the registry and the people publishing through it.
+> These terms have not been reviewed by a lawyer and are not legal advice. They are here to set
+> clear expectations between the registry and the people publishing through it.
 
 The registry records **publishers**, not individual addins. Once you are listed, you host your own
 addin list in your own repository and publish new versions whenever you like, without asking anyone.
