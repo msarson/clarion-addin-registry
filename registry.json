@@ -1,6 +1,14 @@
 {
   "version": 1,
-  "updated": "2026-08-10",
+  "updated": "2026-08-22",
+  "publishers": [
+    {
+      "id": "msarson",
+      "name": "Mark Sarson",
+      "repo": "clarion-addins",
+      "branch": "main"
+    }
+  ],
   "addins": [
     {
       "id": "GitPane",
