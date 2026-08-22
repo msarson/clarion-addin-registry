@@ -112,10 +112,14 @@ Being delisted does not delete your repositories or affect your addins outside t
   "repo": "your-addins-repo", "branch": "main" }
 ```
 
-**The pull request must come from the account you are registering.** That is the whole identity
-check, and it costs you nothing extra: `id` is your GitHub account, so a PR opened by that account
-is proof you control it. A request arriving any other way cannot demonstrate that, and will be
-asked to come back as a PR from the right account.
+**The pull request must come from the account you are registering.** Your `id` is your GitHub
+account, so a PR opened by that account demonstrates you control it, at no extra cost to you. A
+request relayed some other way — by email, or on your behalf — cannot show that, and will be asked
+to come back as a PR from the right account.
+
+You do not need to know Git for this. GitHub's web editor handles it: open `registry.json`, click
+the pencil, and it offers to fork the repository for you. Edit, describe, propose. Four clicks, and
+the fork is GitHub's bookkeeping rather than anything you have to maintain.
 
 Include in the PR description:
 
@@ -125,9 +129,12 @@ Include in the PR description:
 Have your `addins.json` in place before opening the PR, so the entry works the moment it is merged.
 See [msarson/clarion-addins](https://github.com/msarson/clarion-addins) for a working example.
 
-A pull request rather than an issue for three reasons: it proves you control the account being
-listed, it is the change itself rather than a request for someone else to make it, and it is enough
-effort to be uninteresting to the drive-by traffic that finds any public repository eventually.
+A pull request rather than an issue for two reasons: it is the change itself rather than a request
+for somebody else to make it, and it is enough effort to be uninteresting to the drive-by traffic
+that finds any public repository eventually.
+
+Not for identity, incidentally — an issue would prove account control just as well, since GitHub
+authenticates whoever opens one. The difference is who does the work and how much noise arrives.
 
 Approval is still a judgement call, not an automated one. It mostly comes down to whether the
 addins are real, are yours, and do what they say. Issues remain open for problems with the registry
