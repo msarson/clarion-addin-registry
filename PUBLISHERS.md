@@ -105,17 +105,33 @@ Being delisted does not delete your repositories or affect your addins outside t
 
 ## Applying
 
-Open an issue on this repository with:
+**Open a pull request** adding yourself to the `publishers` list in `registry.json`:
 
-- your GitHub account or organisation
-- the repository that will hold your `addins.json`
-- its default branch (`main` and `master` are both fine — the registry records which)
-- the addins you intend to publish, with links
+```json
+{ "id": "your-github-account", "name": "Your Name",
+  "repo": "your-addins-repo", "branch": "main" }
+```
 
-Then confirm you have read this document and agree to it.
+**The pull request must come from the account you are registering.** That is the whole identity
+check, and it costs you nothing extra: `id` is your GitHub account, so a PR opened by that account
+is proof you control it. A request arriving any other way cannot demonstrate that, and will be
+asked to come back as a PR from the right account.
 
-Approval is a judgement call, not an automated one. It mostly comes down to whether the addins are
-real, are yours, and do what they say.
+Include in the PR description:
+
+- the addins you intend to publish, with links to their repositories
+- confirmation that you have read this document and agree to it
+
+Have your `addins.json` in place before opening the PR, so the entry works the moment it is merged.
+See [msarson/clarion-addins](https://github.com/msarson/clarion-addins) for a working example.
+
+A pull request rather than an issue for three reasons: it proves you control the account being
+listed, it is the change itself rather than a request for someone else to make it, and it is enough
+effort to be uninteresting to the drive-by traffic that finds any public repository eventually.
+
+Approval is still a judgement call, not an automated one. It mostly comes down to whether the
+addins are real, are yours, and do what they say. Issues remain open for problems with the registry
+itself — they are just not how publishers are added.
 
 ---
 
