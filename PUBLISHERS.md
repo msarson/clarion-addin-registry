@@ -105,40 +105,27 @@ Being delisted does not delete your repositories or affect your addins outside t
 
 ## Applying
 
-**Open a pull request** adding yourself to the `publishers` list in `registry.json`:
+**Open an issue on this repository, from the GitHub account you want listed**, with:
 
-```json
-{ "id": "your-github-account", "name": "Your Name",
-  "repo": "your-addins-repo", "branch": "main" }
-```
-
-**The pull request must come from the account you are registering.** Your `id` is your GitHub
-account, so a PR opened by that account demonstrates you control it, at no extra cost to you. A
-request relayed some other way — by email, or on your behalf — cannot show that, and will be asked
-to come back as a PR from the right account.
-
-You do not need to know Git for this. GitHub's web editor handles it: open `registry.json`, click
-the pencil, and it offers to fork the repository for you. Edit, describe, propose. Four clicks, and
-the fork is GitHub's bookkeeping rather than anything you have to maintain.
-
-Include in the PR description:
-
+- your GitHub account or organisation — this becomes your publisher `id`
+- the repository that will hold your `addins.json`, and its default branch
+  (`main` and `master` are both fine — the registry records which)
 - the addins you intend to publish, with links to their repositories
 - confirmation that you have read this document and agree to it
 
-Have your `addins.json` in place before opening the PR, so the entry works the moment it is merged.
-See [msarson/clarion-addins](https://github.com/msarson/clarion-addins) for a working example.
+Have your `addins.json` in place before you ask, so the entry works the moment it is added. See
+[msarson/clarion-addins](https://github.com/msarson/clarion-addins) for a working example.
 
-A pull request rather than an issue for two reasons: it is the change itself rather than a request
-for somebody else to make it, and it is enough effort to be uninteresting to the drive-by traffic
-that finds any public repository eventually.
+The issue must come from the account being listed. GitHub authenticates whoever opens one, so that
+is enough to show you control it. A request relayed some other way — by email, or by somebody on
+your behalf — cannot show that, and will be asked to come back as an issue from the right account.
 
-Not for identity, incidentally — an issue would prove account control just as well, since GitHub
-authenticates whoever opens one. The difference is who does the work and how much noise arrives.
+An issue rather than a pull request, deliberately. A PR against `registry.json` can change every
+line in it, not only add a publisher, and merging is one click. Asking for the entry and making the
+entry are different acts, and only one of them should be possible from outside.
 
-Approval is still a judgement call, not an automated one. It mostly comes down to whether the
-addins are real, are yours, and do what they say. Issues remain open for problems with the registry
-itself — they are just not how publishers are added.
+Approval is a judgement call, not an automated one. It mostly comes down to whether the addins are
+real, are yours, and do what they say.
 
 ---
 
