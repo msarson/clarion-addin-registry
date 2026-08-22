@@ -27,6 +27,16 @@ it as one.
 and a licence to redistribute. If your addin is a fork, say so in its entry and honour the original
 licence — including carrying its copyright and licence notice with every copy you distribute.
 
+**And only what its author wants published here.** An open source licence gives you the right to
+redistribute; it does not tell you the author wanted their work listed under someone else's name, in
+a place they did not choose. Those are different questions, and the licence only answers the first.
+If it is not yours, ask — and if the author would rather list it themselves, that is the better
+outcome anyway: their entry, their release schedule, their name against it.
+
+The registry enforces the narrow version of this mechanically — an addin's downloads must come from
+the publisher's own GitHub account, so you cannot list software served from somebody else's. But do
+not treat passing that check as having asked.
+
 **You are responsible for your addins.** Clarion addins run *inside the IDE, in-process, with the
 full privileges of the user running it*. An addin can read and write anything that user can. That is
 a meaningful amount of trust, and it rests with you, not with the registry.
