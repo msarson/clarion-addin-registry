@@ -125,7 +125,7 @@ what is actually on disk.
 > addin reading *Update available* permanently, since running your setup again cannot change what
 > your manifest says. `1.2` and `1.2.0` count as equal; nothing else does.
 
-> Requires Addin Finder **0.8.1 or later**. Earlier builds read only the `addins` key, so they cannot
+> Requires Addin Finder **0.9.0 or later**. Earlier builds read only the `addins` key, so they cannot
 > see a `setupAddins` entry — which is the whole reason for the separate key. Shown one, an older
 > client would have created an *empty* folder under `accessory\addins` and recorded a phantom
 > install, and an empty folder in the folder Clarion scans at start-up can stop the IDE opening.

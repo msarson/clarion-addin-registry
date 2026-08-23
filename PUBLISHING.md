@@ -269,7 +269,7 @@ Four rules that apply to these and not to ordinary addins:
    the entry, not your list.
 4. **Ship a working uninstaller.** Addin Finder will not offer Remove, so yours is the only way out.
 
-> **`setupAddins` needs Addin Finder 0.8.1 or later.** Older builds read only the `addins` key and
+> **`setupAddins` needs Addin Finder 0.9.0 or later.** Older builds read only the `addins` key and
 > cannot see these entries — which is exactly why they live under a separate key rather than as a
 > flag on an ordinary one. Shown such an entry, an older client would find no URLs, download nothing,
 > create an *empty* folder under `accessory\addins` regardless and record a phantom install — and an
