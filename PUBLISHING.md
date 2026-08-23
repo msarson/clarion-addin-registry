@@ -267,7 +267,28 @@ Four rules that apply to these and not to ordinary addins:
    when your list is read, and checked again against the resolved asset before anything is fetched,
    because a repository can be transferred and GitHub follows the move silently. A mismatch drops
    the entry, not your list.
-4. **Ship a working uninstaller.** Addin Finder will not offer Remove, so yours is the only way out.
+4. **Ship a working uninstaller, and do not put it in the addin folder.** Addin Finder will not
+   offer Remove, so yours is the only way out.
+
+   Installers put their uninstaller in the application directory by default — `{app}` in Inno
+   Setup, `INSTALLDIR` in WiX. Pointing that at `accessory\addins\<YourAddinId>\` so everything
+   lives together is the tidy-looking choice and the one to avoid: an uninstaller has to delete
+   itself last, and if it leaves that folder behind empty, that is the shape that stops Clarion
+   starting. The neat thing quietly ships the failure.
+
+   The shape that works, and the one Clarion Assistant's installer already uses:
+
+   - the application directory goes somewhere of your own — `{autopf}\YourAddin` — and is never
+     the Clarion root. The user is not asked about it;
+   - the addin files go to `<resolved Clarion root>\accessory\addins\<YourAddinId>`, resolved at
+     install time, once per Clarion version you support;
+   - uninstall removes that folder **and its contents**, not just the files you laid down. In Inno
+     that is `Type: filesandordirs`, which also sweeps anything your addin generated at runtime —
+     deleting only what you installed can leave a log or a cache behind, and a folder that is not
+     quite empty is no better than one that is.
+
+   Installing into several Clarions at once follows naturally from this, which is worth knowing:
+   Addin Finder can only ever see the one it is running in.
 
 > **`setupAddins` needs Addin Finder 0.9.0 or later.** Older builds read only the `addins` key and
 > cannot see these entries — which is exactly why they live under a separate key rather than as a
