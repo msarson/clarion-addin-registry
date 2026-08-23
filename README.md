@@ -73,6 +73,56 @@ Use `downloadZipUrl` instead of `downloadUrls` when your addin ships resource fi
 
 The zip is extracted directly into the addin's install folder, preserving any sub-folder structure (e.g. `Resources\`). The `.addin` manifest file must be included inside the zip.
 
+### Entry format — addin distributed as a setup installer
+
+Some addins ship as a Windows setup `.exe` rather than as files Addin Finder can place. These go in
+a **separate `setupAddins` list**, alongside `addins` rather than inside it:
+
+```json
+{
+  "version": 1,
+  "publisher": "your-github-account",
+  "addins": [ "..." ],
+  "setupAddins": [
+    {
+      "id": "YourAddinId",
+      "name": "Display Name",
+      "description": "What your addin does.",
+      "author": "YourGitHubUsername",
+      "authorUrl": "https://github.com/YourGitHubUsername",
+      "license": "MIT",
+      "category": "Utilities",
+      "githubRepo": "YourGitHubUsername/your-addin",
+      "homepageUrl": "https://github.com/YourGitHubUsername/your-addin",
+      "changelogUrl": "https://github.com/YourGitHubUsername/your-addin/blob/main/CHANGELOG.md"
+    }
+  ]
+}
+```
+
+**No `version`, and no download URLs.** `githubRepo` records the repository, and Addin Finder resolves
+the current release from it — publishers rename the installer every release
+(`YourAddin-1.2-Setup.exe`, then `-1.2.1-`), so a pinned URL would 404 almost immediately. It also
+means there is no version left for you to keep in step with anything: the release tag is the version.
+
+**Addin Finder downloads the installer and stops.** The button reads **Download**, the file lands in
+the user's Downloads folder, and they run it themselves. It is not executed for them: a setup
+elevates, and it picks its own Clarion installations — possibly not the one running the pad. Nothing
+is recorded as installed and **Remove is not offered**, because those files belong to your
+uninstaller and deleting them behind its back would leave Windows believing the addin is still
+there. It still shows as installed once the setup has run, because Addin Finder reconciles against
+what is actually on disk.
+
+> **`id` must be exactly the folder name your installer creates** under `accessory\addins`, and that
+> folder must contain your `.addin` manifest. For an ordinary addin, Addin Finder creates the folder
+> and `id` decides its name; for a setup addin your installer decides, and the two only match if you
+> make them. Get it wrong and the addin never shows as installed and never reports a version.
+
+> Requires Addin Finder **0.8.1 or later**. Earlier builds read only the `addins` key, so they cannot
+> see a `setupAddins` entry — which is the whole reason for the separate key. Shown one, an older
+> client would have created an *empty* folder under `accessory\addins` and recorded a phantom
+> install, and an empty folder in the folder Clarion scans at start-up can stop the IDE opening.
+
 ### Entry format — fork
 
 Add `fork: true` and `upstreamUrl` so users can see where the addin originates:
@@ -91,12 +141,18 @@ Add `fork: true` and `upstreamUrl` so users can see where the addin originates:
 |-------|---------|
 | `addinFileUrl` | Direct URL to the `.addin` manifest (single-DLL addins only — not needed when using `downloadZipUrl`, which bundles it). |
 | `fork` / `upstreamUrl` | Mark an addin as a fork and point at the original repo (see above). |
+| `githubRepo` | `owner/repo` for an addin distributed as a setup installer. Only valid inside `setupAddins`, where it replaces the version and the download URLs (see above). |
 
 ### Requirements
 
 - Addin must be **open source** (MIT or compatible license)
 - **`authorUrl` is required** — a link to the developer's page (e.g. your GitHub profile `https://github.com/you`). Addin Finder turns the author name in the detail panel into a clickable link so users can find more of your work and know who to contact.
 - All download URLs must point to **GitHub Release** assets (direct download, no redirects)
+- **Everything must come from your own account.** Download URLs must be under
+  `github.com/<your-publisher-id>/`, and a `githubRepo` must be owned by that same id. Both are
+  checked by the client, and an entry that fails is dropped — one bad entry, not your whole list.
+  For a setup addin the check runs again at the moment of download, since a repository that was
+  yours when you listed it can be transferred later and GitHub follows the move silently.
 - `targetFramework` must be `net40` through `net48` — net5+ cannot load in Clarion's CLR v4
 - If using `downloadZipUrl`, the zip must include the `.addin` manifest file
 - Do **not** include debug symbols (`.pdb`) or test assemblies in the release assets

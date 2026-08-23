@@ -19,7 +19,8 @@ what you take responsibility for, and how to ask to be added.
   > ⚠️ .NET 5+ (CoreCLR) is **not compatible** with Clarion's runtime. See [Clarion .NET Compatibility](#clarion-net-compatibility).
 - Your repo has a `LICENSE` file and a `README.md`
 - Downloads are served from **your own GitHub account** (`github.com/<your-id>/...`) -- this is
-  checked by Addin Finder, and an entry pointing anywhere else is dropped
+  checked by Addin Finder, and an entry pointing anywhere else is dropped. The same applies to the
+  `githubRepo` of an addin that ships as a setup installer
 
 ---
 
@@ -70,7 +71,7 @@ Minimal example:
 > See `CheckAddinVersion` in [FlattenCode.csproj](https://github.com/msarson/FlattenCode/blob/master/FlattenCode.csproj).
 
 > **`<Identity name>` must be unique across every addin a user might install.** Clarion loads every
-> subfolder of `accessoryddins` at start-up and refuses to start at all if two declare the same
+> subfolder of `accessory\addins` at start-up and refuses to start at all if two declare the same
 > name -- the user gets *"Identity name used by multiple addins"* and no IDE. It does not have to
 > match your addin id, but it does have to be yours alone, and changing it later looks like a
 > different addin to any IDE that already has yours.
@@ -187,7 +188,7 @@ verbatim. A complete working example:
 > the detail panel as a clickable link so users can find more of your work and know who to contact.
 > See the full field list and examples in the [registry README](./README.md#adding-your-addin).
 
-> `id` is also the folder name the addin installs into, under `accessoryddins`.
+> `id` is also the folder name the addin installs into, under `accessory\addins`.
 
 ### Choosing `downloadUrls` vs `downloadZipUrl`
 
@@ -196,6 +197,73 @@ verbatim. A complete working example:
 | Single DLL + `.addin` only | `downloadUrls` + `addinFileUrl` |
 | Multiple DLLs, no resources | `downloadUrls` (list all DLLs) + `addinFileUrl` |
 | Any resource files / sub-folders | `downloadZipUrl` (zip must include `.addin`) |
+| Ships as a Windows setup `.exe` | a `setupAddins` entry with `githubRepo` — see below |
+
+### If your addin ships as a setup installer
+
+Some addins are distributed as a Windows setup `.exe`: they register components, write outside
+`accessory\addins`, or install into several Clarion versions at once. Addin Finder cannot place
+those files itself, so it does the one thing it honestly can — fetches the installer and hands it
+over.
+
+List these under a **`setupAddins`** key, a sibling of `addins`:
+
+```json
+{
+  "version": 1,
+  "publisher": "your-github-account",
+  "addins": [ "..." ],
+  "setupAddins": [
+    { "id": "YourAddinId", "name": "Your Addin",
+      "description": "What it does.",
+      "author": "you", "authorUrl": "https://github.com/you", "license": "MIT",
+      "category": "Utilities",
+      "githubRepo": "you/your-addin",
+      "homepageUrl": "https://github.com/you/your-addin" }
+  ]
+}
+```
+
+**No `version`, and no download URLs.** Addin Finder resolves the latest release of `githubRepo`
+through the GitHub API, because an installer's file name changes every release and a pinned URL
+would 404 almost at once. The useful consequence is that a setup addin needs **no registry edit to
+release**: tag, upload the installer, done. The release tag is the version, so tag it the way you
+want it read — `v1.2.1` shows as `1.2.1`.
+
+What Addin Finder does with one, and what it leaves to you:
+
+| | |
+|---|---|
+| Button reads | **Download**, not Install |
+| Where it lands | the user's `Downloads` folder |
+| Who runs it | **the user** — it is never executed for them |
+| Recorded as installed | no; the disk scan finds it once your setup has run |
+| Remove offered | no; uninstalling is your installer's job, through Windows |
+
+Not running it is deliberate. A setup elevates, and it picks its own Clarion targets — possibly not
+the installation running the pad. Handing over the file leaves both the decision and the elevation
+prompt with the user, where they belong.
+
+Three rules that apply to these and not to ordinary addins:
+
+1. **`id` must be exactly the folder name your installer creates** under `accessory\addins`, and
+   that folder must contain your `.addin` manifest. For an ordinary addin `id` *decides* the folder
+   name, because Addin Finder creates it. Here your installer decides, and if the two disagree the
+   addin never shows as installed and never reports a version — it just keeps offering Download to
+   someone who already has it.
+2. **`githubRepo` must be under your own account**, exactly as download URLs must be. It is checked
+   when your list is read, and checked again against the resolved asset before anything is fetched,
+   because a repository can be transferred and GitHub follows the move silently. A mismatch drops
+   the entry, not your list.
+3. **Ship a working uninstaller.** Addin Finder will not offer Remove, so yours is the only way out.
+
+> **`setupAddins` needs Addin Finder 0.8.1 or later.** Older builds read only the `addins` key and
+> cannot see these entries — which is exactly why they live under a separate key rather than as a
+> flag on an ordinary one. Shown such an entry, an older client would find no URLs, download nothing,
+> create an *empty* folder under `accessory\addins` regardless and record a phantom install — and an
+> empty folder in the folder Clarion scans at start-up is the shape that stops an IDE opening. So do
+> not put a `githubRepo` entry in your `addins` list to reach older clients: current ones refuse it,
+> and older ones are precisely who it would hurt.
 
 ---
 
@@ -208,6 +276,10 @@ verbatim. A complete working example:
 
 That is the whole process. There is no pull request here, and nothing to wait for -- Addin Finder
 picks it up on the next refresh.
+
+> A **setup addin stops at step 3.** There is no version or URL in its entry to update, so the
+> release itself is the publication -- and there is nothing left to fall out of step with the
+> release you tagged.
 
 ### Retiring an addin
 

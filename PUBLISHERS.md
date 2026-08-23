@@ -58,9 +58,19 @@ say so in its description.
 description describes what the addin actually does. Download links point at your own releases and
 are not repointed at something else later.
 
-**You serve from your own account.** Download URLs must live under `github.com/<your-publisher-id>/`.
-This is checked by the client, not by a person. It exists so that being listed once does not become
-permission to serve arbitrary binaries from anywhere forever.
+**You serve from your own account.** Download URLs must live under `github.com/<your-publisher-id>/`,
+and so must the `githubRepo` of an addin distributed as a setup installer. This is checked by the
+client, not by a person. It exists so that being listed once does not become permission to serve
+arbitrary binaries from anywhere forever.
+
+**If your addin ships as a setup installer, it is still entirely yours.** Addin Finder downloads the
+installer and hands it to the user; it does not run it, does not record it as installed, and does not
+offer to remove it. So the elevation your setup asks for, whatever it writes outside
+`accessory\addins`, whichever Clarion installations it chooses, and whether it can be cleanly
+uninstalled afterwards are all yours to get right — there is no step in between where anything here
+would catch a mistake. Ship a working uninstaller: the registry deliberately offers users no other
+way out. An installer is a larger claim on a user's machine than a DLL in a folder, and it is
+accepted on the same basis as everything else here — that it is yours, and that you stand behind it.
 
 **You respect Identity uniqueness.** Clarion loads every subfolder of `accessory\addins` at startup
 and refuses to start at all if two of them declare the same `<Identity name>` — the user sees
@@ -91,7 +101,8 @@ delisted rather than leaving a known-broken version installable.
 ## What the registry does and does not do
 
 **It does:** record who you are and where your list lives; make your addins discoverable; check that
-download URLs belong to you; warn users before their first install about what addins can do.
+download URLs and setup repositories belong to you; warn users before their first install about what
+addins can do.
 
 **It does not:** review, test, build, sign, or scan your code; host your binaries; guarantee your
 addin works or is safe; provide any warranty to users on your behalf; take responsibility for what
