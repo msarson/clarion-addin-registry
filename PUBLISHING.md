@@ -244,18 +244,30 @@ Not running it is deliberate. A setup elevates, and it picks its own Clarion tar
 the installation running the pad. Handing over the file leaves both the decision and the elevation
 prompt with the user, where they belong.
 
-Three rules that apply to these and not to ordinary addins:
+Four rules that apply to these and not to ordinary addins:
 
 1. **`id` must be exactly the folder name your installer creates** under `accessory\addins`, and
    that folder must contain your `.addin` manifest. For an ordinary addin `id` *decides* the folder
    name, because Addin Finder creates it. Here your installer decides, and if the two disagree the
    addin never shows as installed and never reports a version — it just keeps offering Download to
    someone who already has it.
-2. **`githubRepo` must be under your own account**, exactly as download URLs must be. It is checked
+2. **`<Identity version>` in your manifest must match the release tag.** There is no separate file
+   to declare a version in, and none is wanted: your installer already writes a manifest, and that
+   manifest is what Addin Finder reads to find out which version is on the machine. The version it
+   compares against is the release tag with any leading `v` removed. So tag `v1.2.1`, ship
+   `<Identity version="1.2.1"/>`, and the pad reads **Installed**. Ship a manifest that says
+   something else and it reads **Update available** forever, because installing your setup again
+   cannot change what your manifest says.
+
+   `1.2` and `1.2.0` are treated as the same version, so trailing zeroes will not catch you out.
+   Anything else will. The cheap guard is a build step that fails when your project version and your
+   manifest disagree — see `CheckAddinVersion` in
+   [FlattenCode.csproj](https://github.com/msarson/FlattenCode/blob/master/FlattenCode.csproj).
+3. **`githubRepo` must be under your own account**, exactly as download URLs must be. It is checked
    when your list is read, and checked again against the resolved asset before anything is fetched,
    because a repository can be transferred and GitHub follows the move silently. A mismatch drops
    the entry, not your list.
-3. **Ship a working uninstaller.** Addin Finder will not offer Remove, so yours is the only way out.
+4. **Ship a working uninstaller.** Addin Finder will not offer Remove, so yours is the only way out.
 
 > **`setupAddins` needs Addin Finder 0.8.1 or later.** Older builds read only the `addins` key and
 > cannot see these entries — which is exactly why they live under a separate key rather than as a

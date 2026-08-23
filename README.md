@@ -118,6 +118,13 @@ what is actually on disk.
 > and `id` decides its name; for a setup addin your installer decides, and the two only match if you
 > make them. Get it wrong and the addin never shows as installed and never reports a version.
 
+> **`<Identity version>` must match the release tag.** No separate version file is needed or wanted:
+> your installer already writes a manifest, and that manifest is what Addin Finder reads to find out
+> what is on the machine. It is compared against the release tag with any leading `v` removed — so
+> tag `v1.2.1`, ship `<Identity version="1.2.1"/>`. A manifest that says anything else leaves the
+> addin reading *Update available* permanently, since running your setup again cannot change what
+> your manifest says. `1.2` and `1.2.0` count as equal; nothing else does.
+
 > Requires Addin Finder **0.8.1 or later**. Earlier builds read only the `addins` key, so they cannot
 > see a `setupAddins` entry — which is the whole reason for the separate key. Shown one, an older
 > client would have created an *empty* folder under `accessory\addins` and recorded a phantom
