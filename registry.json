@@ -1,10 +1,16 @@
 {
   "version": 1,
-  "updated": "2026-08-22",
+  "updated": "2026-08-31",
   "publishers": [
     {
       "id": "msarson",
       "name": "Mark Sarson",
+      "repo": "clarion-addins",
+      "branch": "main"
+    },
+    {
+      "id": "ClarionLive",
+      "name": "ClarionLive",
       "repo": "clarion-addins",
       "branch": "main"
     }
