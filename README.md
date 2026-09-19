@@ -174,5 +174,5 @@ Add `fork: true` and `upstreamUrl` so users can see where the addin originates:
 | [Clarion LSP](https://github.com/msarson/clarion-lsp) | [msarson](https://github.com/msarson) | Utilities | 1.4.1 | |
 | [Clarion Markdown Editor](https://github.com/msarson/ClarionMarkdownEditor) | [msarson](https://github.com/msarson) | Editor | 1.2.0 | Fork of [peterparker57](https://github.com/peterparker57/ClarionMarkdownEditor) |
 | [Clarion CSV Editor](https://github.com/msarson/clarion-csv-editor) | [msarson](https://github.com/msarson) | Editor | 0.2.0 | Requires WebView2 |
-| [Clarion Transformer](https://github.com/asantarelli/ClarionTransformer) | [asantarelli](https://github.com/asantarelli) | Editor | 1.0.0 | |
-| [Clarion Formatter](https://github.com/asantarelli/ClarionFormatter) | [asantarelli](https://github.com/asantarelli) | Editor | 2.0.1 | |
+| [Clarion Transformer](https://github.com/asantarelli/ClarionTransformer) | [asantarelli](https://github.com/asantarelli) | Editor | 1.0.1 | |
+| [Clarion Formatter](https://github.com/asantarelli/ClarionFormatter) | [asantarelli](https://github.com/asantarelli) | Editor | 2.1.1 | |
